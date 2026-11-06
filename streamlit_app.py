@@ -1,23 +1,24 @@
 from html import escape
+from textwrap import dedent
 from urllib.parse import quote_plus
 
 import streamlit as st
 
 
 st.set_page_config(
-    page_title="이름 | Personal page",
+    page_title="이채민 | Personal page",
     page_icon="🌿",
     layout="wide",
 )
 
 PROFILE = {
-    "name": "이름을 입력하세요",
+    "name": "이채민",
     "role": "좋아하는 일을 꾸준히 탐구하는 사람",
-    "intro": "새로운 곳을 걷고, 좋은 이야기를 모으며, 작은 아이디어를 직접 만들어 봅니다. 이 문장을 나를 잘 설명하는 소개로 바꿔보세요.",
-    "affiliation": "학교 · 회사 · 팀 이름",
-    "field": "전공 · 직무 · 관심 분야",
-    "location": "서울, 대한민국",
-    "email": "hello@example.com",
+    "intro": "새로운 곳을 누비고, 경험합니다. 내 이야기들을 기록해나가며 나만의 이야기를 만들어가고 있습니다.",
+    "affiliation": "청주교육대학교",
+    "field": "초등교육전공 컴퓨터교육과",
+    "location": "청주, 대한민국",
+    "email": "lcheminn7@gmail.com",
     "image": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1400&q=85",
 }
 
@@ -414,8 +415,8 @@ project_rows = "".join(
     for project in PROJECTS
 )
 
-st.markdown(
-    f"""
+st.html(
+    dedent(f"""
     <nav class="site-nav" aria-label="페이지 메뉴">
         <a class="nav-mark" href="#top">{escape(PROFILE['name'])} / NOTEBOOK</a>
         <div class="nav-links">
@@ -501,6 +502,5 @@ st.markdown(
             <span>천천히 모으고, 나답게 기록하기</span>
         </footer>
     </main>
-    """,
-    unsafe_allow_html=True,
+    """),
 )
